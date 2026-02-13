@@ -31,7 +31,6 @@ It uses Retrieval-Augmented Generation (RAG) to provide context-aware and reliab
 - **Deployment:** Render / Railway / HuggingFace Spaces
 
 ---
-
 # Project Structure
 
 Medical_Chatbot/
