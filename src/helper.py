@@ -1,10 +1,8 @@
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import FakeEmbeddings
 
-from langchain_community.embeddings import HuggingFaceEmbeddings
 
-
-# ===== LOAD PDF FILES =====
 def load_pdf_file(data):
     loader = DirectoryLoader(
         data,
@@ -14,7 +12,6 @@ def load_pdf_file(data):
     return loader.load()
 
 
-# ===== SPLIT TEXT =====
 def text_split(extracted_data):
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
@@ -23,8 +20,5 @@ def text_split(extracted_data):
     return splitter.split_documents(extracted_data)
 
 
-# ===== EMBEDDINGS =====
 def download_hugging_face_embeddings():
-    return HuggingFaceEmbeddings(
-        model_name="BAAI/bge-small-en-v1.5"
-    )
+    return FakeEmbeddings(size=384)
