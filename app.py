@@ -1,18 +1,18 @@
 import os
 os.environ["TRANSFORMERS_NO_TF"] = "1"
 
+# Flask
+from flask import Flask, render_template, request
+
+# Env
+from dotenv import load_dotenv
+
 # LangChain
 from langchain_pinecone import PineconeVectorStore
 from langchain_groq import ChatGroq
-
-# FIXED IMPORTS ↓
 from langchain.chains.retrieval import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-
 from langchain_core.prompts import ChatPromptTemplate
-from flask import Flask, render_template, request
-
-from dotenv import load_dotenv
 
 # Your files
 from src.helper import download_hugging_face_embeddings
@@ -39,16 +39,12 @@ retriever = docsearch.as_retriever(
     search_kwargs={"k": 3}
 )
 
-# ✅ GROQ LLM (FREE)
-
+# ===== GROQ LLM =====
 llm = ChatGroq(
     groq_api_key=os.getenv("GROQ_API_KEY"),
     model_name="llama-3.1-8b-instant",
     temperature=0.4
 )
-
-
-
 
 # ===== PROMPT =====
 prompt = ChatPromptTemplate.from_messages([
@@ -74,8 +70,9 @@ def chat():
         return response["answer"]
     except Exception as e:
         print("ERROR:", e)
-        return "Error occurred. Check terminal."
+        return "Error occurred. Check server logs."
 
-# ===== RUN =====
+# ===== RUN (Render Compatible) =====
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
