@@ -4,11 +4,7 @@ from langchain_community.embeddings import FakeEmbeddings
 
 
 def load_pdf_file(data):
-    loader = DirectoryLoader(
-        data,
-        glob="*.pdf",
-        loader_cls=PyPDFLoader
-    )
+    loader = DirectoryLoader(data, glob="*.pdf", loader_cls=PyPDFLoader)
     return loader.load()
 
 
