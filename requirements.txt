@@ -1,14 +1,17 @@
-flask==2.3.3
-python-dotenv==1.0.1
-pypdf==3.17.4
+flask
+python-dotenv
+gunicorn
 
-pinecone-client==3.2.2
+pypdf
 
-langchain==0.2.16
-langchain-community==0.2.16
-langchain-core==0.2.38
+pinecone-client
+
+langchain
+langchain-community
+langchain-core
 langchain-pinecone
-langchain-huggingface==0.0.3
-langchain-groq==0.1.9
+langchain-groq
 
-tiktoken==0.7.0
+sentence-transformers
+huggingface-hub
+tiktoken
