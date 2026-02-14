@@ -1,4 +1,4 @@
-# 🩺 Curo – AI Medical Chatbot
+<img width="1901" height="999" alt="image" src="https://github.com/user-attachments/assets/de1edc20-4654-406f-8eb8-2e6a5fefd209" /># 🩺 Curo – AI Medical Chatbot
 
 Curo is an AI-powered medical chatbot that answers health-related questions using Large Language Models (LLMs) and medical knowledge from PDF documents.  
 It uses Retrieval-Augmented Generation (RAG) to provide context-aware and reliable responses.
@@ -74,3 +74,7 @@ python store_index.py(only once you have to run)
 
 # Run App
 python app.py
+
+
+Output: 
+<img width="1901" height="999" alt="Screenshot 2026-02-14 211300" src="https://github.com/user-attachments/assets/a2a8309d-b47a-4695-94e0-8f9959a9aa1c" />
